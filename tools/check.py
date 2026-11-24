@@ -143,6 +143,20 @@ def main():
     for stale in ("Parto da Modena", "assets/img/%s" % "01-l.webp"):
         if stale in raw: fail("testo/file superato ancora presente: " + stale)
 
+    # 6c. testo: niente parole incollate, niente frasi ripetute, messaggi precompilati leggibili
+    glued = re.findall(r"</(?:b|small|strong)><(?:span|small|b)\b", raw)
+    if glued: fail("elementi inline senza spazio (testo incollato quando manca il CSS): %d casi" % len(glued))
+    plain = re.sub(r"<script.*?</script>|<[^>]+>", " ", raw, flags=re.S).lower()
+    n_phrase = plain.count("tutto quello che si muove")
+    if n_phrase != 1: fail("'tutto quello che si muove' deve comparire una sola volta nel testo (trovato %d)" % n_phrase)
+    from urllib.parse import unquote
+    for enc in re.findall(r'href="https://wa\.me/\d+\?text=([^"]+)"', raw):
+        txt = unquote(enc)
+        if "_" in txt: fail("segnaposto con underscore (WhatsApp li legge come corsivo): " + txt)
+        if "[" not in txt and "]" not in txt: warn("messaggio WhatsApp senza segnaposto da completare: " + txt)
+    mail = re.search(r'href="mailto:[^"?]+\?subject=([^&"]+)&amp;body=([^"]+)"', raw)
+    if not mail: fail("mailto senza oggetto e testo")
+
     # 7. budget di peso
     first = size_kb("index.html") + size_kb("assets/css/style.css") + size_kb("assets/js/main.js") + size_kb("assets/js/motion.js")
     first += size_kb("assets/fonts/big-shoulders-display-latin-800-normal.woff2") + size_kb("assets/fonts/hanken-grotesk-latin-400-normal.woff2")

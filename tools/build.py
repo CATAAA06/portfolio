@@ -166,7 +166,7 @@ def block_gallery(gallery, dims, exifs):
             '      <a class="shot" data-cat="%s" data-n="%s" data-title="%s" data-cap="%s" data-exif="%s"'
             ' href="assets/img/%s-full.webp" data-avif="assets/img/%s-full.avif" aria-haspopup="dialog">\n%s\n'
             '        <span class="roundel" aria-hidden="true">%s</span>'
-            '<span class="cap" aria-hidden="true"><b>%s</b>%s</span>\n      </a>'
+            '<span class="cap" aria-hidden="true"><b>%s</b> %s</span>\n      </a>'
             % (p["cat"], pid, esc(p["title"]), esc(p["cap"]), esc(exifs.get(pid, "")), pid, pid,
                picture(p, dims, GALLERY_SIZES, ' loading="lazy" decoding="async"'),
                pid, esc(p["title"]), esc(p["sub"])))
@@ -206,12 +206,12 @@ def block_contact(cfg):
                       for m in c["messages"])
     mailto = "mailto:%s?subject=%s&body=%s" % (c["email"], quote(c["emailSubject"], safe=""), quote(c["emailBody"], safe=""))
     return (
-        '    <p class="lead small">Dimmi di cosa ti occupi: si apre WhatsApp con il messaggio già scritto, completi i vuoti e invii.</p>\n'
-        '    <div class="wa-row" role="group" aria-label="Scrivimi su WhatsApp come">\n%s\n    </div>\n'
+        '    <p class="lead small">Scegli il tuo lavoro: si apre WhatsApp con il messaggio già scritto, completi le parti tra [parentesi] e invii. Per un preventivo o qualsiasi altra richiesta scegli «Preventivo».</p>\n'
+        '    <div class="wa-row" role="group" aria-label="Scrivimi su WhatsApp, messaggio già scritto per">\n%s\n    </div>\n'
         '    <div class="cards">\n'
-        '      <a class="card" href="https://instagram.com/%s" rel="noopener"><small>Instagram</small><span>@%s</span></a>\n'
-        '      <a class="card" href="%s" rel="noopener"><small>WhatsApp</small><span>%s</span></a>\n'
-        '      <a class="card" href="%s"><small>Email</small><span>%s</span></a>\n'
+        '      <a class="card" href="https://instagram.com/%s" rel="noopener"><small>Instagram</small> <span>@%s</span></a>\n'
+        '      <a class="card" href="%s" rel="noopener"><small>WhatsApp</small> <span>%s</span></a>\n'
+        '      <a class="card" href="%s"><small>Email</small> <span>%s</span></a>\n'
         '    </div>'
     ) % (pills, c["instagram"], c["instagram"], esc(wa(c, c["whatsappGeneric"])), esc(c["phoneLabel"]), esc(mailto), esc(c["email"]))
 

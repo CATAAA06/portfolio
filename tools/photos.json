@@ -7,14 +7,15 @@
     "phoneLabel": "+39 3312163194",
     "email": "fra.cata2006@gmail.com",
     "instagram": "fra_catalano27",
-    "whatsappGeneric": "Ciao Francesco, vorrei l'ora di prova gratuita. Mi occupo di ____ a ____.",
-    "emailSubject": "Ora di prova gratuita",
-    "emailBody": "Ciao Francesco,\n\nsono ____ e mi occupo di ____ a ____.\nVorrei prenotare l'ora di prova gratuita.\n\nGrazie",
+    "whatsappGeneric": "Ciao Francesco, ti scrivo dal tuo portfolio. [la tua richiesta]",
+    "emailSubject": "Ora di prova o preventivo",
+    "emailBody": "Ciao Francesco,\n\nsono [nome] e mi occupo di [lavoro] a [città].\nVorrei: [l'ora di prova gratuita / un preventivo].\n\nGrazie",
     "messages": [
-      { "label": "Detailing e PPF", "text": "Ciao Francesco, sono ____ e faccio detailing e PPF a ____. Vorrei l'ora di prova gratuita." },
-      { "label": "Wrapping", "text": "Ciao Francesco, sono ____ e faccio wrapping a ____. Vorrei l'ora di prova gratuita." },
-      { "label": "Officina", "text": "Ciao Francesco, ho un'officina a ____. Vorrei l'ora di prova gratuita." },
-      { "label": "Concessionaria", "text": "Ciao Francesco, lavoro in una concessionaria a ____. Vorrei l'ora di prova gratuita." }
+      { "label": "Detailing e PPF", "text": "Ciao Francesco, sono [nome] e faccio detailing e PPF a [città]. Vorrei l'ora di prova gratuita." },
+      { "label": "Wrapping", "text": "Ciao Francesco, sono [nome] e faccio wrapping a [città]. Vorrei l'ora di prova gratuita." },
+      { "label": "Officina", "text": "Ciao Francesco, ho un'officina a [città]. Vorrei l'ora di prova gratuita." },
+      { "label": "Concessionaria", "text": "Ciao Francesco, lavoro in una concessionaria a [città]. Vorrei l'ora di prova gratuita." },
+      { "label": "Preventivo", "text": "Ciao Francesco, vorrei un preventivo per [tipo di lavoro] a [città]." }
     ]
   },
   "hero": {

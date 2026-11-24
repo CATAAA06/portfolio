@@ -108,8 +108,8 @@ h1,h2{margin:0;font-family:var(--display);font-weight:800;text-transform:upperca
 .shot img{width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .shot:hover img{transform:scale(1.035)}
 .shot .roundel{position:absolute;top:12px;left:12px}
-.shot .cap{position:absolute;inset:auto 0 0 0;padding:42px 16px 14px;background:linear-gradient(to top,rgba(10,9,8,.82),transparent);
-  font:500 12px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#cfc6b9;opacity:0;transform:translateY(8px);transition:all .3s}
+.shot .cap{position:absolute;inset:auto 0 0 0;padding:42px 16px 14px;background:linear-gradient(to top,rgba(10,9,8,.92) 0%,rgba(10,9,8,.74) 60%,transparent);text-shadow:0 1px 3px rgba(0,0,0,.55);
+  font:500 12px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#e6dfd3;opacity:0;transform:translateY(8px);transition:all .3s}
 .shot .cap b{display:block;font:800 22px/1 var(--display);letter-spacing:.05em;color:var(--paper);margin-bottom:4px}
 .shot:hover .cap,.shot:focus-visible .cap{opacity:1;transform:none}
 @media (hover:none){.shot .cap{opacity:1;transform:none}}
