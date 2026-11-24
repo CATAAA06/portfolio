@@ -120,6 +120,29 @@ def main():
     for f in ("robots.txt", "sitemap.xml", "404.html", "favicon.svg", "apple-touch-icon.png", "assets/og.jpg", ".nojekyll"):
         if not os.path.exists(os.path.join(ROOT, f)): fail("manca " + f)
 
+    # 6b. contenuto: nessuna foto ripetuta, filtri coerenti, contatti coerenti, dati di scatto
+    with open(os.path.join(ROOT, "tools", "photos.json"), encoding="utf-8") as f:
+        cfg = json.load(f)
+    files = [p["file"] for p in cfg["photos"]] + [cfg["hero"]["main"]["file"], cfg["hero"]["inset"]["file"]]
+    dupes = {x for x in files if files.count(x) > 1}
+    if dupes: fail("stessa foto usata due volte (hero e galleria): %s" % sorted(dupes))
+    cats = re.findall(r'class="shot" data-cat="(\w+)"', raw)
+    for k, label in cfg["categories"]:
+        n = len(cats) if k == "all" else cats.count(k)
+        m = re.search(r'data-f="%s"[^>]*>[^<]*<small>(\d+)</small>' % k, raw)
+        if not m or int(m.group(1)) != n: fail("filtro '%s': conteggio %s, foto reali %d" % (label, m.group(1) if m else "?", n))
+    unknown = set(cats) - {k for k, _ in cfg["categories"]}
+    if unknown: fail("categorie senza filtro: %s" % sorted(unknown))
+    phone = cfg["contact"]["phone"]
+    numbers = set(re.findall(r"wa\.me/(\d+)", raw))
+    if numbers != {phone}: fail("numeri WhatsApp diversi nei link: %s (atteso %s)" % (sorted(numbers), phone))
+    if re.sub(r"\D", "", cfg["contact"]["phoneLabel"]) != phone: fail("numero visibile diverso dal link WhatsApp")
+    if cfg["contact"]["phoneLabel"] not in raw: fail("numero visibile assente dalla pagina")
+    if not cfg.get("showExif") and re.search(r'data-exif="[^"]+"', raw): fail("dati di scatto presenti ma showExif e false")
+    if cfg["contact"]["email"] not in raw: fail("email non presente nella pagina")
+    for stale in ("Parto da Modena", "assets/img/%s" % "01-l.webp"):
+        if stale in raw: fail("testo/file superato ancora presente: " + stale)
+
     # 7. budget di peso
     first = size_kb("index.html") + size_kb("assets/css/style.css") + size_kb("assets/js/main.js") + size_kb("assets/js/motion.js")
     first += size_kb("assets/fonts/big-shoulders-display-latin-800-normal.woff2") + size_kb("assets/fonts/hanken-grotesk-latin-400-normal.woff2")
