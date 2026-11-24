@@ -105,7 +105,7 @@ h1,h2{margin:0;font-family:var(--display);font-weight:800;text-transform:upperca
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(14px,2vw,28px) 0}
 .words span:not(.g){color:transparent;-webkit-text-stroke:1.5px #6d655b}
 .band{margin:0}
-.band img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px}
+.band img{display:block;width:100%;max-width:520px;margin:0 auto;aspect-ratio:2/3;object-fit:cover;border-radius:4px}
 
 /* offerta */
 .offer{border-top:1px solid var(--line)}
@@ -165,7 +165,7 @@ h1,h2{margin:0;font-family:var(--display);font-weight:800;text-transform:upperca
   .shot .cap b{font-size:17px}
   .shot .roundel{width:34px;height:34px;font-size:17px;top:8px;left:8px}
   .steps{grid-template-columns:minmax(0,1fr)}
-  .band img{aspect-ratio:3/2}
+  .band img{aspect-ratio:2/3}
   .lb-stage{padding:0 8px}
   .lb-nav{width:40px;height:40px;top:auto;bottom:-52px;translate:none}
 }
