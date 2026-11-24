@@ -8,13 +8,13 @@
     "email": "fra.cata2006@gmail.com",
     "instagram": "fra_catalano27",
     "whatsappGeneric": "Ciao Francesco, ti scrivo dal tuo portfolio. [la tua richiesta]",
-    "emailSubject": "Ora di prova o preventivo",
-    "emailBody": "Ciao Francesco,\n\nsono [nome] e mi occupo di [lavoro] a [città].\nVorrei: [l'ora di prova gratuita / un preventivo].\n\nGrazie",
+    "emailSubject": "Richiesta di informazioni o preventivo",
+    "emailBody": "Ciao Francesco,\n\nsono [nome] e mi occupo di [lavoro] a [città].\nVorrei: [parlare di un lavoro / un preventivo].\n\nGrazie",
     "messages": [
-      { "label": "Detailing e PPF", "text": "Ciao Francesco, sono [nome] e faccio detailing e PPF a [città]. Vorrei l'ora di prova gratuita." },
-      { "label": "Wrapping", "text": "Ciao Francesco, sono [nome] e faccio wrapping a [città]. Vorrei l'ora di prova gratuita." },
-      { "label": "Officina", "text": "Ciao Francesco, ho un'officina a [città]. Vorrei l'ora di prova gratuita." },
-      { "label": "Concessionaria", "text": "Ciao Francesco, lavoro in una concessionaria a [città]. Vorrei l'ora di prova gratuita." },
+      { "label": "Detailing e PPF", "text": "Ciao Francesco, sono [nome] e faccio detailing e PPF a [città]. Vorrei parlare di un lavoro." },
+      { "label": "Wrapping", "text": "Ciao Francesco, sono [nome] e faccio wrapping a [città]. Vorrei parlare di un lavoro." },
+      { "label": "Officina", "text": "Ciao Francesco, ho un'officina a [città]. Vorrei parlare di un lavoro." },
+      { "label": "Concessionaria", "text": "Ciao Francesco, lavoro in una concessionaria a [città]. Vorrei parlare di un lavoro." },
       { "label": "Preventivo", "text": "Ciao Francesco, vorrei un preventivo per [tipo di lavoro] a [città]." }
     ]
   },

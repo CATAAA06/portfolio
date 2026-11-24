@@ -142,6 +142,10 @@ def main():
     if cfg["contact"]["email"] not in raw: fail("email non presente nella pagina")
     for stale in ("Parto da Modena", "assets/img/%s" % "01-l.webp"):
         if stale in raw: fail("testo/file superato ancora presente: " + stale)
+    from urllib.parse import unquote as _unq
+    everything = _unq(raw).lower() + " " + json.dumps(cfg, ensure_ascii=False).lower()
+    for banned in ("gratis", "gratuit", "prova"):
+        if banned in everything: fail("la parola '%s' non deve comparire (pagina, meta, JSON-LD, messaggi precompilati)" % banned)
 
     # 6c. testo: niente parole incollate, niente frasi ripetute, messaggi precompilati leggibili
     glued = re.findall(r"</(?:b|small|strong)><(?:span|small|b)\b", raw)
